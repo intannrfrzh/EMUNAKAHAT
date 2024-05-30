@@ -18,6 +18,7 @@
 
     <!-- css link -->
     <link rel="stylesheet" href="../css/userView.css">
+    <link rel="stylesheet" href="../Common/sidebar.css">
 </head>
 
 <body style="background-color: white;">
@@ -78,7 +79,7 @@
                 <a class="text-light">Kemaskini</a>
             </button>
             <button type="submit" class="btn">
-                <a class="text-light" href="../../../app/View/applicantMarReg/payment.php">Teruskan</a>
+                <a class="text-light" href="../../../app/View/applicantMarReg/MarRegistrationMenu.php">Teruskan</a>
             </button>
 
         </form>

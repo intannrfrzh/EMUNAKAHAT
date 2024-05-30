@@ -17,6 +17,7 @@
 
   <!-- css link -->
   <link rel="stylesheet" href="../css/userView.css">
+  <link rel="stylesheet" href="../Common/sidebar.css">
 </head>
 
 <body style="background-color: white;">

@@ -1,6 +1,6 @@
 <?php
-require_once '../app/Config/database.php';
-require_once '../app/Controller/M4controller/userControl.php';
+//require_once ('app\Config\database.php');
+//require_once ('app\Controller\M4controller\M4userController.php');
 
 class M4model {
     private $connect;
@@ -37,13 +37,14 @@ class M4model {
   }
   
 }
-// $database = new PDO("mysql:host=localhost;dbname=eMunakahatDB", "root", ""); 
+$database = new PDO("mysql:host=localhost;dbname=systemkahwin", "root", ""); 
 
-if ($database) {
-    $M4Model = new M4model($database);
-    $userControl = new userControl($M4Model);
-} else {
+
+//if ($database) {
+//    $M4Model = new M4model($database);
+//    $userControl = new userControl($M4Model);
+//} else {
     // Handle the case when the database connection fails
-}
+//}
 
 
