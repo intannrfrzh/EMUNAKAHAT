@@ -1,14 +1,4 @@
 <?php
-$database = new Database();
-$conn = $database->connect(); // Get the database connection object
-
-if ($conn) {
-    $M4model = new M4model($conn); // Pass the connection object to M4Model
-    $userController = new userControl($m4model); // Pass the M4Model object to userController
-} else {
-    // Handle the case when the database connection fails
-    // Display an error message or take appropriate action
-}
 
 class userControl {
 
