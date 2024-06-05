@@ -3,7 +3,7 @@ $database = new Database();
 $conn = $database->connect(); // Get the database connection object
 
 if ($conn) {
-    $m4model = new M4model($conn); // Pass the connection object to M4Model
+    $M4model = new M4model($conn); // Pass the connection object to M4Model
     $userController = new userControl($m4model); // Pass the M4Model object to userController
 } else {
     // Handle the case when the database connection fails

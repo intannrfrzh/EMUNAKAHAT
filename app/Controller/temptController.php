@@ -7,7 +7,7 @@ class TemptController {
         // For now, it simply calls the template
 
         // Include the template
-        //include 'app/View/temp/template.php';
-        include 'app/View/temp/stafftemplate.php';
+        include 'app/View/temp/template.php';
+        //include 'app/View/temp/stafftemplate.php';
     }
 }

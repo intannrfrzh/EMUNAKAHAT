@@ -1,6 +1,6 @@
 <?php
-//require_once ('app\Config\database.php');
-//require_once ('app\Controller\M4controller\M4userController.php');
+require_once ('app\Config\database.php');
+require_once ('app\Controller\M4controller\M4userController.php');
 
 class M4model {
     private $connect;
