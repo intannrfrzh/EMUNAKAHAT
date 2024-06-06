@@ -55,6 +55,13 @@ $query = "SELECT * FROM course"
     <link rel="stylesheet" href="../css/userView.css"> 
     <link rel="stylesheet" href="../Common/sidebar.css">
     <style>
+      body {
+        background-color: white;
+        
+        height: 100vh;
+
+      }
+
       table {
     font-family: arial, sans-serif;
     border-collapse: separate;
@@ -129,7 +136,8 @@ td, th {
         <td><?php echo $row['course_capacity']; ?></td>
         <td><?php echo $row['course_available']; ?></td>
         <td><button>PAPAR</button></td>
-        <td><button>DAFTAR</button></td>
+        <td><button><a  href="../../../app/View/applicantMarCourse/regCourseForm.php">DAFTAR</a>
+      </button></td>
     </tr>
 <?php endwhile; ?>
 

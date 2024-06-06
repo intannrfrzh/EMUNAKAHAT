@@ -1,4 +1,5 @@
 <?php
+ob_start();
 // index.php
 
 // Include database
@@ -50,3 +51,115 @@ $userControl = new userControl($M4Model);
 //$staffController = new staffController($M5Model);
 
 $controller->handleRequest();
+
+$action = isset($_GET['action']) ? $_GET['action'] : '';
+
+switch ($action) {
+    // passing the data from the closeRelative.php to the index.php
+    case 'closeRelative':
+        $closeName = $_POST['closeName'];
+        $closeRelation = $_POST['closeRelation'];
+        $closePhone = $_POST['closePhone'];
+
+        $userController->closeForm($closeName, $closeRelation, $closePhone);
+
+        header('Location: ../app/View/applicantIncentive/closeView.php');
+        break;
+
+    // passing the data from the grooms.php to the index.php
+    case 'groomsJob':
+        $job = $_POST['job'];
+        $jobsType = $_POST['jobsType'];
+        $Salary = $_POST['groomsSalary'];
+        $nameAddress = $_POST['nameAddress'];
+
+        $userController->jobForm($job, $jobsType, $Salary, $nameAddress);
+
+        header('Location: ../app/View/applicantIncentive/groomsView.php');
+        break;
+
+    // passing the data from the userInfo to the index
+    case 'userInfo':
+        if (isset($_POST['userIC'])) {
+            $IC = $_POST['userIC'];
+            $userInfo = $userController->getUserInfo($IC);
+            include '../app/View/applicantIncentive/userView.php';
+        }
+        break;
+
+    // passing the data from the partnerInfo to the index
+    case 'partnerInfo':
+        if (isset($_POST['partnerIC'])) {
+            $partnerIC = $_POST['partnerIC'];
+            $partnerInfo = $userController->getpartnerInfo($partnerIC);
+            include '../app/View/applicantIncentive/partnerView.php';
+        }
+        break;
+
+    // passing the data from the document to the index
+    case 'document':
+        $file = $_FILES['file'];
+
+        $userController->uploadFile($file);
+
+        header('Location: ../app/View/applicantIncentive/documentView.php');
+        break;
+
+    // passing the data from the incentive to the index
+    case 'incentivelist':
+        $incentivelist = $staffController->Retrieveincentive();
+        include '../app/View/staffIncentive/listView.php';
+        break;
+
+    case 'createAccount':
+        $ic = $_POST['ic'];
+        $password = $_POST['password'];
+        $name = $_POST['name'];
+        $gender = $_POST['gender'];
+        $phoneNume = $_POST['phoneNum'];
+
+        $userProfileController->applicantRegisterFunction($ic, $userType, $name, $dob, $birthPlace, $phoneNum, $email, $race, $gender, $nationality, $address, $job, $income, $workplaceAddress, $bankName, $bankNumber, $password);
+        break;
+
+    case 'loginAccount':
+        $ic = $_POST['ic'];
+        $password = $_POST['password'];
+        $userType = $_POST['userType'];
+
+        $userProfileController->userLoginAccountFunction($ic, $password, $userType);
+        break;
+
+    case 'forgotPassword':
+        $ic = $_POST['formIC'];
+        $email = $_POST['formEmail'];
+        // $userProfileController->resetPassword($ic, $email);
+        break;
+
+    case 'viewProfile':
+        $from = isset($_GET['from']) ? $_GET['from'] : '';
+        $userProfileController->viewProfileFunction($from);
+        break;
+
+        case 'registrationConsultInfo':
+
+            $applicant_IC = $_POST['applicant_IC'];
+            $applicant_Name = $_POST['applicant_Name'];
+            $partner_IC = $_POST['partner_IC'];
+            $partner_Name = $_POST['partner_Name'];
+            $consultationType = $_POST['consultationType'];
+            $Description = $_POST['Description'];
+            $request_DateTime = $_POST['request_DateTime'];
+    
+            $userControl->registrationConsultInfo($partner_IC, $partner_Name, $applicant_IC, $applicant_Name, $request_DateTime, $Description, $consultationType);
+
+            header ('Location: app\View\UserConsult\mainUserPage.php');
+            exit;
+            break;
+    
+    default:
+        // Handle default action if needed
+        break;
+}
+
+ob_end_flush();
+?>

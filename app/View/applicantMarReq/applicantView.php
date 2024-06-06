@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 //Connect to the database server.
 $link = mysqli_connect("localhost", "root", "") or die(mysqli_connect_error());
 
@@ -34,7 +34,15 @@ $query = "SELECT * FROM applicant2"
           $Nationality = $row['applicant2_Nationality'];
           $Job = $row['applicant2_Job'];
           $Income = $row['applicant2_Income'];
+
+        }
+      } else {
+          echo "0 results";
+
+          }
+          
           ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -109,7 +117,7 @@ td, th {
         <div class="menu-form">
                 <h3> PERMOHONAN KEBENARAN PERKAHWINAN </h3>  
 
-                <form action="../../../public/index.php?action=userInfo" id="user-form" method="post">
+                <form action="/index.php?action=userInfo" id="user-form" method="post">
       <div style="position: relative; top: 20px;" class="row mb-3 postion-input d-flex justify-content-center">
 
         <!-- User Infomrmation -->
@@ -170,11 +178,7 @@ td, th {
     </form>
 
     <?php
-                }
-                } else {
-                    echo "0 results";
-
-                    }
+                
                     // Close the database connection
                   mysqli_close($link);
                   ?>
@@ -195,4 +199,4 @@ td, th {
 </div>
      
 </body>
-</html>
+</html> -->
