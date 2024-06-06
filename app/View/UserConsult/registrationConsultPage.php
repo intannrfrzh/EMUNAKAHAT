@@ -123,7 +123,7 @@ $array1 = mysqli_fetch_assoc($result1);
 
                                                     <section>
           <div style="border: 5px solid lightblue; background-color: #00FFFF;" class="container2 w-77 p-20">
-            <center><h1 class="centered-text"><b>TEMPAH SESI MASA KONSULTASI</b></h1></center>
+            <center><h1 class="centered-text"><b>TEMPAH MASA SESI KONSULTASI</b></h1></center>
           </div>
         </section>
         <tr>
