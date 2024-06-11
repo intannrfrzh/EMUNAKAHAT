@@ -1,39 +1,42 @@
 <?php
+ob_start();
+// index.php
 
-// Include required files
-require_once '../app/Config/database.php';
-require_once '../app/Model/M5model.php';
-require_once '../app/Model/M3model.php';
-require_once '../app/Model/M1model.php';
-require_once '../app/Model/M2model.php';
-require_once '../app/Model/M4model.php';
+// Include database
+require_once(__DIR__.'/app/Config/database.php');
 
-require_once '../app/Controller/M5controller/userController.php';
-require_once '../app/Controller/M5controller/staffController.php';
+// Include all controller files
+require_once(__DIR__.'/app/Controller/temptController.php');
+require_once(__DIR__.'/app/Controller/M1controller/M1staffController.php');
+require_once(__DIR__.'/app/Controller/M1controller/M1userController.php');
+require_once(__DIR__.'/app/Controller/M2controller/M2staffCourseController.php');
+require_once(__DIR__.'/app/Controller/M2controller/M2staffRequestController.php');
+require_once(__DIR__.'/app/Controller/M2controller/M2userCourseController.php');
+require_once(__DIR__.'/app/Controller/M2controller/M2userRequestController.php');
+require_once(__DIR__.'/app/Controller/M3controller/M3staffController.php');
+require_once(__DIR__.'/app/Controller/M3controller/M3userController.php');
+require_once(__DIR__.'/app/Controller/M4controller/M4staffController.php');
+require_once(__DIR__.'/app/Controller/M4controller/M4userController.php');
+//require_once(__DIR__.'/app/Controller/M5controller/M5staffController.php');
+//require_once(__DIR__.'/app/Controller/M5controller/M5userController.php')
 
-require_once '../app/Controller/M1controller/userProfileController.php';
-require_once '../app/Controller/M1controller/staffProfileController.php';
+// Include all model files
+require_once(__DIR__.'/app/Model/M1model.php');
+require_once(__DIR__.'/app/Model/M2model.php');
+require_once(__DIR__.'/app/Model/M3model.php');
+require_once(__DIR__.'/app/Model/M4model.php');
+//require_once(__DIR__.'/app/Model/M5model.php');
 
-require_once '../app/Controller/M2controller/staffCourseController.php';
-require_once '../app/Controller/M2controller/staffRequestController.php';
-require_once '../app/Controller/M2controller/userCourseController.php';                                                   
-require_once '../app/Controller/M2controller/userRequestController.php';
-
-require_once '../app/Controller/M3controller/staffMarRegController.php';
-require_once '../app/Controller/M3controller/userMarRegController.php';
-
-require_once '../app/Controller/M4controller/staffControl.php';
-require_once '../app/Controller/M4controller/userControl.php';
-
+// Your other code goes here...
 $db = (new Database())->connect();
-$M5Model = new M5model($db);
-$M3Model = new M3model($db);
 $M1Model = new M1model($db);
 $M2Model = new M2model($db);
+$M3Model = new M3model($db);
 $M4Model = new M4model($db);
+//$M5Model = new M5model($db);
 
-$userController = new userController($M5Model);
-$staffController = new staffController($M5Model);
+// Instantiate the controller
+$controller = new TemptController();
 $userProfileController = new userProfileController($M1Model);
 $staffProfileController = new staffProfileController($M1Model);
 $staffCourseController = new staffCourseController($M2Model);
@@ -44,8 +47,10 @@ $staffMarRegController = new staffMarRegController($M3Model);
 $userMarRegController = new userMarRegController($M3Model);
 $staffControl = new staffControl($M4Model);
 $userControl = new userControl($M4Model);
+//$userController = new userController($M5Model);
+//$staffController = new staffController($M5Model);
 
-
+$controller->handleRequest();
 
 $action = isset($_GET['action']) ? $_GET['action'] : '';
 
@@ -134,49 +139,27 @@ switch ($action) {
         $from = isset($_GET['from']) ? $_GET['from'] : '';
         $userProfileController->viewProfileFunction($from);
         break;
+
+        case 'registrationConsultInfo':
+
+            $applicant_IC = $_POST['applicant_IC'];
+            $applicant_Name = $_POST['applicant_Name'];
+            $partner_IC = $_POST['partner_IC'];
+            $partner_Name = $_POST['partner_Name'];
+            $consultationType = $_POST['consultationType'];
+            $Description = $_POST['Description'];
+            $request_DateTime = $_POST['request_DateTime'];
+    
+            $userControl->registrationConsultInfo($partner_IC, $partner_Name, $applicant_IC, $applicant_Name, $request_DateTime, $Description, $consultationType);
+
+            header ('Location: app\View\UserConsult\mainUserPage.php');
+            exit;
+            break;
     
     default:
         // Handle default action if needed
         break;
 }
+
+ob_end_flush();
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-MUNAKAHAT</title>
-<!-- MDB icon -->
-<link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <!-- Google Fonts Roboto -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
-  <!-- MDB -->
-  <link rel="stylesheet" href="../app/Bootstrap/mdb.min.css" />
-
-  <!-- css link -->
-    <link rel="stylesheet" href="../app/View/css/userView.css">
-    <link rel="stylesheet" href="../app/View/css/sidebar.css">
-
-</head>
-<body>
-<!-- Start your project here-->
-
-  <!-- heading -->
-
-  <?php
-
-include_once '../app/View/Common/heading.html';
-?>
-
-<!-- sidebar -->
-
-<?php
-include_once '../app/View/Common/sidebar.php';
-?>
-</body>
-</html>
-</body>
-
-</html>

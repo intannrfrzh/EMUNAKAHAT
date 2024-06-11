@@ -3,8 +3,8 @@ require_once '../../../app/Config/database.php';
 require_once '../../../app/Model/M3model.php';
 
 //require controller
-require_once '../../../app/Controller/M3controller/userMarRegController.php';
-require_once '../../../app/Controller/M3controller/staffMarRegController.php';
+require_once '../../../app/Controller/M3controller/M3userController.php';
+require_once '../../../app/Controller/M3controller/M3staffController.php';
 $db = (new Database())->connect();
 
 $select = "SELECT * FROM applicant3 WHERE applicant_IC = '7507210651'";
@@ -33,6 +33,7 @@ $select = "SELECT * FROM applicant3 WHERE applicant_IC = '7507210651'";
 
     <!-- css link -->
     <link rel="stylesheet" href="../css/userView.css">
+    <link rel="stylesheet" href="../Common/sidebar.css">
 </head>
 
 <body style="background-color: white;">

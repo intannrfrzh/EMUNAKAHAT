@@ -27,7 +27,8 @@
     <link rel="stylesheet" href="../../Bootstrap/mdb.min.css" />
 
     <!-- css link -->
-    <link rel="stylesheet" href="../css/userView.css">   
+    <link rel="stylesheet" href="../Common/userView.css">
+    <link rel="stylesheet" href="../Common/sidebar.css">   
   </head>
   <body style="background-color: white;"> 
     <!-- Start your project here-->

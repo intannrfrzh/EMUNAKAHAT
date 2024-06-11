@@ -1,9 +1,9 @@
-<?php
+<!-- <?php
 //Connect to the database server.
 $link = mysqli_connect("localhost", "root", "") or die(mysqli_connect_error());
 
 //Select the database.
-mysqli_select_db($link, "emunakahat") or die(mysqli_error($link));
+mysqli_select_db($link, "systemkahwin") or die(mysqli_error($link));
 
 
 
@@ -34,7 +34,15 @@ $query = "SELECT * FROM applicant2"
           $Nationality = $row['applicant2_Nationality'];
           $Job = $row['applicant2_Job'];
           $Income = $row['applicant2_Income'];
+
+        }
+      } else {
+          echo "0 results";
+
+          }
+          
           ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -55,10 +63,11 @@ $query = "SELECT * FROM applicant2"
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
     />
     <!-- MDB -->
-    <link rel="stylesheet" href="../../Bootstrap/mdb.min.css" />
+    <link rel="stylesheet" href="../../mdb/css/mdb.min.css" />
 
     <!-- css link -->
-    <link rel="stylesheet" href="../css/userView.css">   
+    <link rel="stylesheet" href="../Common/userView.css"> 
+    <link rel="stylesheet" href="../Common/sidebar.css">  
     <style>
        
        
@@ -108,7 +117,7 @@ td, th {
         <div class="menu-form">
                 <h3> PERMOHONAN KEBENARAN PERKAHWINAN </h3>  
 
-                <form action="../../../public/index.php?action=userInfo" id="user-form" method="post">
+                <form action="/index.php?action=userInfo" id="user-form" method="post">
       <div style="position: relative; top: 20px;" class="row mb-3 postion-input d-flex justify-content-center">
 
         <!-- User Infomrmation -->
@@ -169,11 +178,7 @@ td, th {
     </form>
 
     <?php
-                }
-                } else {
-                    echo "0 results";
-
-                    }
+                
                     // Close the database connection
                   mysqli_close($link);
                   ?>
@@ -194,4 +199,4 @@ td, th {
 </div>
      
 </body>
-</html>
+</html> -->

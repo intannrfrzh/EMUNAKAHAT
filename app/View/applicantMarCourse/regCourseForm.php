@@ -4,7 +4,7 @@
 $link = mysqli_connect("localhost", "root", "") or die(mysqli_connect_error());
 
 //Select the database.
-mysqli_select_db($link, "emunakahat") or die(mysqli_error($link));
+mysqli_select_db($link, "systemkahwin") or die(mysqli_error($link));
 
 
 // SQL query with JOIN
@@ -51,10 +51,11 @@ $query = "SELECT * FROM course"
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
     />
     <!-- MDB -->
-    <link rel="stylesheet" href="../../Bootstrap/mdb.min.css" />
+    <link rel="stylesheet" href="../../mdb/css/mdb.min.css" />
 
     <!-- css link -->
-    <link rel="stylesheet" href="../css/userView.css"> 
+    <link rel="stylesheet" href="../Common/userView.css"> 
+    <link rel="stylesheet" href="../Common/sidebar.css">
     
   </head>
   <body style="background-color: white;"> 

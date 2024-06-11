@@ -1,6 +1,6 @@
 <?php
-require_once '../app/Config/database.php';
-require_once '../app/Controller/M4controller/userControl.php';
+//require_once ('app\Config\database.php');
+//require_once ('app\Controller\M4controller\M4userController.php');
 
 class M4model {
     private $connect;
@@ -10,40 +10,37 @@ class M4model {
     }
 
 
-    public function registrationConsultInfo($partner_IC, $partner_Name, $partner_DOB, $partner_phone_number, $partner_race, $partner_Address, $partner_Job, $partner_Income, $applicant_IC, $applicant_Name, $applicant_DOB, $applicant_phone_number, $applicant_race, $applicant_Address, $applicant_Job, $applicant_Income) {
-      $query = $this->connect->prepare("INSERT INTO Partners (partner_IC, partner_Name, partner_DOB, partner_phone_number, partner_race, partner_Address, partner_Job, partner_Income) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-      $query2 = $this->connect->prepare("INSERT INTO Applicants (applicant_IC, applicant_Name, applicant_DOB, applicant_phone_number, applicant_race, applicant_Address, applicant_Job, applicant_Income) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    public function registrationConsultInfo($partner_IC, $partner_Name, $applicant_IC, $applicant_Name,$request_DateTime, $Description, $consultationType) {
+      //$query = $this->connect->prepare("INSERT INTO partners3 (partner_IC, partner_Name) VALUES (?, ?)");
+    // $query2 = $this->connect->prepare("INSERT INTO applicant3 (applicant_IC, applicant_Name) VALUES (?, ?)");
+    $query = $this->connect->prepare("INSERT INTO consultation_session (applicant_IC, applicant_Name, partner_IC, partner_Name, request_DateTime, Description, consultationType) VALUES (?, ?, ?, ?, ?, ?, ?)");
   
       $query->bindParam(1, $partner_IC);
       $query->bindParam(2, $partner_Name);
-      $query->bindParam(3, $partner_DOB);
-      $query->bindParam(4, $partner_phone_number);
-      $query->bindParam(5, $partner_race);
-      $query->bindParam(6, $partner_Address);
-      $query->bindParam(7, $partner_Job);
-      $query->bindParam(8, $partner_Income);
+      $query->bindParam(1, $request_DateTime);
+      
+      $query->bindParam(3, $Description);
+      $query->bindParam(4, $consultationType);
+      
   
-      $query2->bindParam(1, $applicant_IC);
-      $query2->bindParam(2, $applicant_Name);
-      $query2->bindParam(3, $applicant_DOB);
-      $query2->bindParam(4, $applicant_phone_number);
-      $query2->bindParam(5, $applicant_race);
-      $query2->bindParam(6, $applicant_Address);
-      $query2->bindParam(7, $applicant_Job);
-      $query2->bindParam(8, $applicant_Income);
+      $query->bindParam(6, $applicant_IC);
+      $query->bindParam(7, $applicant_Name);
+      
   
-      $query->execute();
-      $query2->execute();
+    //  $query->execute();
+    // $query2->execute();
+      $query->execute([$partner_IC, $partner_Name, $applicant_IC, $applicant_Name, $request_DateTime, $Description, $consultationType]);
   }
   
 }
-// $database = new PDO("mysql:host=localhost;dbname=eMunakahatDB", "root", ""); 
+$database = new PDO("mysql:host=localhost;dbname=systemkahwin", "root", ""); 
 
-if ($database) {
-    $M4Model = new M4model($database);
-    $userControl = new userControl($M4Model);
-} else {
+
+//if ($database) {
+//    $M4Model = new M4model($database);
+//    $userControl = new userControl($M4Model);
+//} else {
     // Handle the case when the database connection fails
-}
+//}
 
 

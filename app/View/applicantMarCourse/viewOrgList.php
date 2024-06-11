@@ -3,15 +3,11 @@
 $link = mysqli_connect("localhost", "root", "") or die(mysqli_connect_error());
 
 //Select the database.
-mysqli_select_db($link, "emunakahat") or die(mysqli_error($link));
+mysqli_select_db($link, "systemkahwin") or die(mysqli_error($link));
 
 
 
 //SQL query
-
-
-
-
 $query = "SELECT * FROM course"
 	or die(mysqli_connect_error());
 
@@ -40,9 +36,8 @@ $query = "SELECT * FROM course"
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>PPNP</title>
-    <!-- MDB icon -->
-    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <title>viewOrgList</title>
+  
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
@@ -54,11 +49,19 @@ $query = "SELECT * FROM course"
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
     />
     <!-- MDB -->
-    <link rel="stylesheet" href="../../Bootstrap/mdb.min.css" />
+    <link rel="stylesheet" href="../../mdb/css/mdb.min.css" />
 
     <!-- css link -->
     <link rel="stylesheet" href="../css/userView.css"> 
+    <link rel="stylesheet" href="../Common/sidebar.css">
     <style>
+      body {
+        background-color: white;
+        
+        height: 100vh;
+
+      }
+
       table {
     font-family: arial, sans-serif;
     border-collapse: separate;
@@ -133,7 +136,8 @@ td, th {
         <td><?php echo $row['course_capacity']; ?></td>
         <td><?php echo $row['course_available']; ?></td>
         <td><button>PAPAR</button></td>
-        <td><button>DAFTAR</button></td>
+        <td><button><a  href="../../../app/View/applicantMarCourse/regCourseForm.php">DAFTAR</a>
+      </button></td>
     </tr>
 <?php endwhile; ?>
 

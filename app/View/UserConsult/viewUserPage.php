@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>PPNP</title>
-    <!-- MDB icon -->
-    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
@@ -18,16 +16,17 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
     />
     <!-- MDB -->
-    <link rel="stylesheet" href="../../Bootstrap/mdb.min.css" />
+    <link rel="stylesheet" href="../../mdb/css/mdb.min.css" />
 
     <!-- css link -->
-    <link rel="stylesheet" href="../css/userView.css">
+    <link rel="stylesheet" href="../Common/userView.css">
+    <link rel="stylesheet" href="../Common/sidebar.css">
   </head>
   <body>
 
   <?php
 
-      require ('../../Model/eMunakahatDB.php')
+      require ('../../Model/M4model.php')
     ?>
 
   <?php
@@ -53,7 +52,7 @@ include_once ('../../View/Common/sidebar.php')
       $servername = "localhost";
       $username = "root";
       $password = "";
-      $dbname = "eMunakahatDB";
+      $dbname = "systemkahwin";
 
       // Create a connection to the database
       $conn = new mysqli($servername, $username, $password, $dbname);
@@ -63,8 +62,8 @@ include_once ('../../View/Common/sidebar.php')
         die("Connection failed: " . $conn->connect_error);
       }
     
-      $sql = "SELECT * FROM applicants";
-      $sql2 = "SELECT * FROM partners";
+      $sql = "SELECT * FROM applicant";
+      $sql2 = "SELECT * FROM partner";
       $sql3 = "SELECT * FROM staff_account";
       $result = $conn->query($sql);
       $result2 = $conn->query($sql2);

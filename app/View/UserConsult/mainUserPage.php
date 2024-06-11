@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>PPNP</title>
-    <!-- MDB icon -->
-    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
@@ -18,10 +16,11 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
     />
     <!-- MDB -->
-    <link rel="stylesheet" href="../../Bootstrap/mdb.min.css" />
+    <link rel="stylesheet" href="../../mdb/css/mdb.min.css" />
 
     <!-- css link -->
-    <link rel="stylesheet" href="../css/userView.css">   
+    <link rel="stylesheet" href="../Common/userView.css">   
+    <link rel="stylesheet" href="../Common/sidebar.css">
   </head>
   <body style="background-color: white;"> 
     <!-- Start your project here-->
@@ -30,7 +29,7 @@
 
     <?php
 
-      require ('../../Model/eMunakahatDB.php')
+      //require ('../../Model/M4model.php')
     ?>
 
     <?php
@@ -53,12 +52,12 @@
           <!-- No Kad Pengenalan -->
     
           <div class="row mb-3">
-          <label for="applicant_IC" class="col-sm-2 col-form-label">No Kad Pengenalan</label>
+          <!--<label for="applicant_IC" class="col-sm-2 col-form-label">No Kad Pengenalan</label>
           <div class="col-sm-3">
             <div class="input-group">
               <input name="applicant_IC" type="text" class="form-control form-control-sm" id="applicant_IC">
               <button class="btn btn-primary" id="semak" onclick="navigateToNextPage(this.id)">Semak</button>
-            </div>
+            </div>-->
             <script>
               function navigateToNextPage(btnid) {
                 // Redirect to the view page
@@ -86,8 +85,9 @@
                 <th>Bil</th>
                 <th>No. KP / Nama Pengadu</th>
                 <th>No. KP / Nama Pasangan</th>
-                <th>Tarikh Sesi</th>
-                <th>Status</th>
+                <th>Jenis Konsultasi</th>
+                <th>Tarikh / Masa</th>
+                <th>Description</th>
               </tr>
             </thead>
             <tbody>
@@ -96,7 +96,7 @@
                 $servername = "localhost";
                 $username = "root";
                 $password = "";
-                $dbname = "eMunakahatDB";
+                $dbname = "systemkahwin";
 
                 try {
                   // Create a PDO connection
@@ -109,10 +109,11 @@
                   while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     echo "<tr>";
                     echo "<td>" . $row['consult_ID'] . "</td>";
-                    echo "<td>" . $row['applicant_IC'] . "</td>";
-                    echo "<td>" . $row['partner_IC'] . "</td>";
-                    echo "<td>" . $row['request_Date'] . "</td>";
-                    echo "<td>" . $row['status'] . "</td>";
+                    echo "<td>" . $row['applicant_IC'] . $row['applicant_Name']."</td>";
+                    echo "<td>" . $row['partner_IC'] . $row['partner_Name']. "</td>";
+                    echo "<td>" . $row['consultationType'] . "</td>";
+                    echo "<td>" . $row['request_DateTime'] . "</td>";
+                    echo "<td>" . $row['Description'] . "</td>";
                     echo "</tr>";
                   }
                 } catch(PDOException $e) {

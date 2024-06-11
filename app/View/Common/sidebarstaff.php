@@ -3,10 +3,10 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Sidebar Dashboard Template With Sub Menu</title>
-		<link rel="stylesheet" href="style.css">
+<//link rel="stylesheet" href="style.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
-        <link rel="stylesheet" href="../css/sidebar.css">
+        <!--link rel="stylesheet" href="../css/sidebar.css"-->
 	</head>
 	<body>
 		<!--wrapper start-->
@@ -99,13 +99,13 @@
 		</div>
 		<!--wrapper end-->
 
-		<!-- <script type="text/javascript">
+		<script type="text/javascript">
 		$(document).ready(function(){
 			$(".sidebar-btn").click(function(){
 				$(".wrapper").toggleClass("collapse");
 			});
 		});
-		</script> -->
+		</script> 
 		
 
 	</body>

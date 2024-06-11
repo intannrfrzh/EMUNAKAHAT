@@ -4,9 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>PPNP</title>
-    <!-- MDB icon -->
-    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <title>regView</title>
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
@@ -21,7 +19,8 @@
     <link rel="stylesheet" href="../../Bootstrap/mdb.min.css" />
 
     <!-- css link -->
-    <link rel="stylesheet" href="../css/userView.css">   
+    <link rel="stylesheet" href="../css/userView.css">
+    <link rel="stylesheet" href="../Common/sidebar.css"> 
     <style>
        
        
