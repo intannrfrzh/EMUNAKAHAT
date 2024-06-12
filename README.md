@@ -22,6 +22,8 @@ The team of programmers working on the project includes Afiq, Intan, Tisya, Riza
 
 buat dalam cmd prompt;
 cd C:/xampp/htdocs/PUPP-main/public
+
+cd C:/xampp/htdocs/EMUNAKAHAT
 php -S localhost:8000
 
 http://localhost:8000/applicant/mar-registration-menu
