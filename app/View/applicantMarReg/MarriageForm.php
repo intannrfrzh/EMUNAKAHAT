@@ -55,30 +55,27 @@ $array = mysqli_fetch_assoc($result);
     <!-- main content -->
 
     <!--MARRIAGE REGISTRATION MARRIAGE FORM -->
-    <div style="border: 2px solid black; background-color: #D9D9D9; height: auto;" class="container-content w-75 p-3 ">
+   
 
         <form>
-            <div style="height: auto; position: relative; top: 20px;"
-                class="row mb-3 postion-input d-flex justify-content-center">
-
-                <!-- Your content of input here -->
-                <!--navigation bar for form-->
-                <center>
-                    <ul class="nav nav-tabs">
+        <div class="container mt-5">
+        <div class="card">
+            <div class="card-body">
+                <form action="../../../public/index.php?action=husbandFormRet" id="husband-form" method="post">
+                    <div class="text-center mb-4">
+                        <h1>DAFTAR PERKAHWINAN</h1>
+                    </div>
+                    <ul class="nav nav-tabs justify-content-center mb-4">
                         <li class="nav-item">
-                            <a class="nav-link" href="../../../app/View/applicantMarReg/wifeForm.php">MAKLUMAT SUAMI</a>
+                            <a class="nav-link" href="../../../app/View/applicantMarReg/husbandForm.php">MAKLUMAT SUAMI</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../../../app/View/applicantMarReg/wifeForm.php">MAKLUMAT
-                                ISTERI</a>
+                            <a class="nav-link" href="../../../app/View/applicantMarReg/wifeForm.php">MAKLUMAT ISTERI</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page"
-                                href="../../../app/View/applicantMarReg/marriageForm.php">MAKLUMAT PERKAHWINAN</a>
+                            <a class="nav-link active" aria-current="page" href="../../../app/View/applicantMarReg/marriageForm.php">MAKLUMAT PERKAHWINAN</a>
                         </li>
                     </ul>
-                </center>
-
                 <form>
                     <p>Ruang yang bertanda(*) adalah ruang yang wajib diisi</p>
 
@@ -121,7 +118,7 @@ $array = mysqli_fetch_assoc($result);
                     <div class="row mb-3">
                         <label for="marriage-place" class="col-sm-2 col-form-label">Tempat akad Nikah : </label>
                         <div class="col-sm-10">
-                            <input type="time" name="marriage_time" id="marriage_time" class="form-control" required />
+                            <input type="text" name="marriage_place" id="marriage_place" class="form-control" required />
                         </div>
                     </div>
 
@@ -285,12 +282,14 @@ $array = mysqli_fetch_assoc($result);
 
             </div>
             <!--button-->
-            <button type="submit" class="btn">
-                <a class="text-light" href="../../../app/View/applicantMarReg/wifeForm.php">Kembali</a>
-            </button>
-            <button type="submit" class="btn">
-                <a class="text-light" href="../../../app/View/applicantMarReg/DL_document.php">Teruskan</a>
-            </button>
+            <div class="d-flex justify-content-between">
+                <button type="button" class="btn btn-secondary">
+                    <a class="text-light" href="../../../app/View/applicantMarReg/husbandForm.php">Kembali</a>
+                </button>
+                <button type="submit" class="btn btn-primary">
+                    <a class="text-light" href="../../../app/View/applicantMarReg/DL_document.php">Teruskan</a>
+                </button>
+            </div>
         </form>
 
 
@@ -307,87 +306,64 @@ $array = mysqli_fetch_assoc($result);
     </div>
 
     <style>
-        h1 {
-            text-align: center;
-            padding: 20px;
-            color: #000;
-            font-size: 50px;
-            font-weight: bold;
+        body {
+            background-color: #f8f9fa;
         }
 
-        /* .form-control {
-            color: black;
-            background-color: #fff;
+        .container {
+            max-width: 800px;
+        }
+
+        .card {
             border-radius: 1rem;
-            width: 100%;
-            height: auto;
-            padding: 0.7rem;
-            margin: 0.625rem;
-        }*/
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        h1 {
+            color: #000;
+            font-size: 2rem;
+            font-weight: bold;
+        }
 
         label {
             font-weight: bold;
-            font-size: 20px;
+            font-size: 1rem;
         }
 
         .btn {
-            background-color: #1e72b0;
-            color: white;
             border-radius: 0.5rem;
             cursor: pointer;
-            width: auto;
-            height: 10%;
-            opacity: 0.9;
-            font-size: 20px;
+            font-size: 1rem;
             font-weight: bold;
-            position: relative;
-            left: 75%;
-            bottom: 0px;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn a {
+            color: white;
+            text-decoration: none;
         }
 
         .btn:hover {
-            opacity: 3;
+            opacity: 0.8;
         }
 
-        .btn:active {
-            background-color: #38EBD0;
-            box-shadow: 0 1px #666;
-            transform: translateY(4px);
-        }
-
-        .not-btn {
-            border-radius: 10px;
-            padding: 10px;
-            margin: 20px;
-
-        }
-
-        .apply-btn {
-            border-radius: 10px;
-            padding: 10px;
-            margin: 20px;
-            background-color: green;
-        }
-
-        .container-content {
-            height: 550px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .inner-content {
-            text-align: center;
-            border: 2px solid black;
-            padding: 50px;
-            border-radius: 20px;
-            font-size: larger;
-            color: black;
+        .nav-tabs .nav-item .nav-link.active {
+            background-color: #007bff;
+            color: white;
         }
     </style>
-
-
-
 
     <!-- End your project here-->
 

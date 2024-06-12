@@ -40,7 +40,8 @@
     <!-- main content -->
 
     <!--DALAM LUAR DOCUMENT UPLOAD-->
-    <div style="border: 2px solid black; background-color: #D9D9D9; height: auto;" class="container-content w-75 p-3 ">
+
+    <div style="border: 2px solid black; background-color: #D9D9D9; padding: 20px; width: 70%;" class="container-content">
 
         <form>
             <div style="height: auto; position: relative; top: 20px;"
@@ -85,12 +86,14 @@
             </div>
 
             <!-- button -->
+            <div style="text-align: left;">
             <button type="submit" class="btn">
                 <a class="text-light">Kemaskini</a>
             </button>
             <button type="submit" class="btn">
                 <a class="text-light" href="../../../app/View/applicantMarReg/payment.php">Teruskan</a>
             </button>
+            </div>
 
         </form>
     </div>
@@ -105,6 +108,13 @@
     </div>
 
     <style>
+
+.input-group-text {
+    background-color: #1e72b0; /* Change to your desired color */
+    color: white; /* Text color */
+    border-color: #1e72b0; /* Border color */
+}
+
         h1 {
             text-align: center;
             padding: 20px;
@@ -129,7 +139,8 @@
             font-size: 20px;
             font-weight: bold;
             position: relative;
-            left: 75rem;
+            top: 1rem;
+            left: 40rem;
             bottom: 0px;
         }
 

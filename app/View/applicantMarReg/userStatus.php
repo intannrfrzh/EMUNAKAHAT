@@ -40,7 +40,7 @@
     <!-- main content -->
 
     <!--DALAM LUAR DOCUMENT UPLOAD-->
-    <div style="border: 2px solid black; background-color: #D9D9D9; height: auto;" class="container-content w-75 p-3 ">
+    <div style="border: 2px solid black; background-color: #D9D9D9; padding: 20px;" class="container-content w-75 ">
 
         <form>
             <div style="height: auto; position: relative; top: 20px;"
@@ -49,7 +49,7 @@
                 <!-- Your content of input here -->
                 <h1>SEMAKAN STATUS PERMOHONAN</h1>
 
-                <table border=2px align="center">
+                <table border="1" cellspacing="0" align="center">
                     <tr>
                         <th>Bil</th>
                         <th>KP/Nama Suami</th>
@@ -69,63 +69,46 @@
 
                 </table>
 
-
-
             </div>
 
             <!-- button -->
             <br>
-            <button type="submit" class="btn">
-                <a class="text-light">Kemaskini</a>
-            </button>
-            <button type="submit" class="btn">
-                <a class="text-light" href="../../../app/View/applicantMarReg/MarRegistrationMenu.php">Teruskan</a>
-            </button>
+            <div style="text-align: center;">
+                <button type="submit" class="btn">
+                    <a class="text-light">Kemaskini</a>
+                </button>
+                <button type="submit" class="btn">
+                    <a class="text-light" href="../../../app/View/applicantMarReg/MarRegistrationMenu.php">Teruskan</a>
+                </button>
+            </div>
 
         </form>
     </div>
 
-
-
-    <!-- Your content of input here -->
-
-
-
-
-    </div>
-
     <style>
+        h1 {
+            text-align: center;
+            padding: 20px;
+            color: #000;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
         table {
             border-collapse: collapse;
-            width: 100%;
+            width: 00%;
             background-color: #fff;
         }
 
-        td {
+        td, th {
             border: 1px solid black;
             padding: 8px;
             text-align: left;
         }
 
         th {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: left;
             background-color: #666;
-            color : white;
-        }
-
-        h1 {
-            text-align: center;
-            padding: 20px;
-            color: #000;
-            font-size: 50px;
-            font-weight: bold;
-        }
-
-        label {
-            font-weight: bold;
-            font-size: 20px;
+            color: white;
         }
 
         .btn {
@@ -134,13 +117,10 @@
             border-radius: 0.5rem;
             cursor: pointer;
             width: auto;
-            height: 10%;
             opacity: 0.9;
             font-size: 20px;
             font-weight: bold;
-            position: relative;
-            left: 75rem;
-            bottom: 0px;
+            margin-top: 20px;
         }
 
         .btn:hover {
@@ -153,39 +133,10 @@
             transform: translateY(4px);
         }
 
-        .not-btn {
-            border-radius: 10px;
-            padding: 10px;
-            margin: 20px;
-
-        }
-
-        .apply-btn {
-            border-radius: 10px;
-            padding: 10px;
-            margin: 20px;
-            background-color: green;
-        }
-
         .container-content {
-            height: 550px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .inner-content {
-            text-align: center;
-            border: 2px solid black;
-            padding: 50px;
-            border-radius: 20px;
-            font-size: larger;
-            color: black;
+            padding-bottom: 20px;
         }
     </style>
-
-
-
 
     <!-- End your project here-->
 
